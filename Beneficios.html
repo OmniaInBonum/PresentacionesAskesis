@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis & Ancud Rollers - Desarrollo Integral para Patinadoras</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --slate-900: #0f172a;
+            --slate-800: #1e293b;
+            --slate-700: #334155;
+            --slate-300: #cbd5e1;
+            --sky-400: #38bdf8;
+            --sky-500: #0ea5e9;
+            --white: #ffffff;
+            --askesis-orange: #F58220; /* Color Naranja para Askesis */
+            --ancud-yellow: #DFFF00;  /* Color Amarillo Eléctrico para Ancud Rollers */
+            
+            /* Nuevos colores para tarjetas de beneficios */
+            --benefit-purple: #9333ea;
+            --benefit-green: #16a34a;
+            --benefit-blue: #2563eb;
+            --benefit-purple-light: #d8b4fe;
+            --benefit-green-light: #86efac;
+            --benefit-blue-light: #93c5fd;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--slate-300);
+            background-color: var(--slate-900);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative; /* Necesario para el pseudo-elemento ::before */
+            z-index: 1;
+        }
+
+        /* Collage de logos como fondo de página */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('https://raw.githubusercontent.com/OmniaInBonum/PresentacionesAskesis/main/Askesislogo1.png'), url('https://raw.githubusercontent.com/OmniaInBonum/PresentacionesAskesis/main/Ancud%20Rollers.png');
+            background-size: 150px, 150px; /* Tamaño de cada logo en el patrón */
+            background-position: 0 0, 75px 75px; /* Desplaza el segundo logo para crear el efecto collage */
+            background-repeat: repeat;
+            opacity: 0.04; /* Opacidad aumentada para mayor visibilidad */
+            z-index: -1; /* Lo posiciona detrás de todo el contenido */
+        }
+
+        .main-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(15, 23, 42, 0.85); /* bg-slate-900 con transparencia */
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--slate-700);
+        }
+
+        .header-gradient-text {
+            background: linear-gradient(45deg, var(--sky-400), var(--sky-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+        
+        /* --- Clases de color personalizadas --- */
+        .text-askesis-orange { color: var(--askesis-orange); }
+        .text-ancud-yellow { color: var(--ancud-yellow); }
+
+        /* --- Carousel --- */
+        .carousel-container {
+            position: relative;
+            max-width: 1000px; /* Ancho ajustado para dar espacio a los botones */
+            width: 100%;
+            overflow: hidden;
+            border-radius: 1.5rem; /* rounded-3xl */
+        }
+        .carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
+        .carousel-slide { min-width: 100%; box-sizing: border-box; position: relative; }
+        .carousel-slide img { width: 100%; height: 500px; object-fit: cover; display: block; border-radius: 1.5rem; }
+        .carousel-text-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0)); color: white; padding: 4rem 2rem 2rem; text-align: center; border-radius: 0 0 1.5rem 1.5rem; }
+        .carousel-text-overlay h3 { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 2.5rem; color: var(--white); margin-bottom: 0.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
+        .carousel-text-overlay p { font-size: 1.1rem; max-width: 80%; margin: 0 auto; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        .carousel-nav-btn { background-color: var(--slate-800); color: var(--white); border: 1px solid var(--slate-700); border-radius: 50%; width: 3rem; height: 3rem; font-size: 1.5rem; cursor: pointer; transition: all 0.2s ease; flex-shrink: 0; }
+        .carousel-nav-btn:hover { background-color: var(--sky-500); transform: scale(1.1); }
+        .carousel-dots { text-align: center; padding-top: 1.5rem; }
+        .carousel-dots .dot { cursor: pointer; height: 0.75rem; width: 0.75rem; margin: 0 0.5rem; background-color: var(--slate-700); border-radius: 50%; display: inline-block; transition: background-color 0.3s ease; }
+        .carousel-dots .dot.active { background-color: var(--sky-400); }
+
+        /* --- Cards Section --- */
+        .info-card { border-radius: 1rem; padding: 2rem; transition: all 0.3s ease; }
+        .info-card-purple { background-color: rgba(147, 51, 234, 0.1); border: 1px solid rgba(147, 51, 234, 0.5); }
+        .info-card-purple:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(147, 51, 234, 0.2); border-color: var(--benefit-purple); }
+        .info-card-purple h4 { color: var(--benefit-purple); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.25rem; margin-bottom: 0.75rem; }
+        .info-card-purple p { color: var(--benefit-purple-light); }
+        
+        .info-card-green { background-color: rgba(22, 163, 74, 0.1); border: 1px solid rgba(22, 163, 74, 0.5); }
+        .info-card-green:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(22, 163, 74, 0.2); border-color: var(--benefit-green); }
+        .info-card-green h4 { color: var(--benefit-green); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.25rem; margin-bottom: 0.75rem; }
+        .info-card-green p { color: var(--benefit-green-light); }
+
+        .info-card-blue { background-color: rgba(37, 99, 235, 0.1); border: 1px solid rgba(37, 99, 235, 0.5); }
+        .info-card-blue:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2); border-color: var(--benefit-blue); }
+        .info-card-blue h4 { color: var(--benefit-blue); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.25rem; margin-bottom: 0.75rem; }
+        .info-card-blue p { color: var(--benefit-blue-light); }
+
+
+        /* --- CTA Section --- */
+        .cta-section { background: linear-gradient(45deg, var(--sky-500), #1d4ed8); border-radius: 1.5rem; padding: 3rem 2rem; text-align: center; }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <div class="flex items-center gap-4">
+                <!-- Askesis -->
+                <a href="https://omniainbonum.github.io/Biblioteca-Askesis/biblioteca%20Askesis/documentos/AskesisWeb.html" target="_blank" class="flex items-center gap-3">
+                    <img src="https://raw.githubusercontent.com/OmniaInBonum/PresentacionesAskesis/main/Askesislogo1.png" alt="Logo de Askesis" class="h-10 w-10 rounded-full border-2 border-slate-700 object-cover">
+                    <span class="text-xl font-black uppercase tracking-wider font-inter text-askesis-orange">Askesis</span>
+                </a>
+
+                <span class="text-gray-400 text-2xl font-light">/</span>
+
+                <!-- Ancud Rollers -->
+                <div class="flex items-center gap-3">
+                     <span class="text-xl font-black uppercase tracking-wider font-inter text-ancud-yellow">Ancud Rollers</span>
+                     <img src="https://raw.githubusercontent.com/OmniaInBonum/PresentacionesAskesis/main/Ancud%20Rollers.png" alt="Logo de Ancud Rollers" class="h-10 w-10 rounded-full border-2 border-slate-700 object-cover">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <!-- INTRODUCCIÓN -->
+        <section id="introduccion" class="text-center my-12">
+            <h1 class="text-3xl md:text-5xl font-black text-white leading-tight">Una Colaboración para el <span class="header-gradient-text">Crecimiento</span></h1>
+            <p class="max-w-3xl mx-auto mt-4 text-lg text-slate-300">
+                <a href="https://omniainbonum.github.io/Biblioteca-Askesis/biblioteca%20Askesis/documentos/AskesisWeb.html" target="_blank" class="font-bold text-askesis-orange hover:underline">Askesis</a> y <span class="font-bold text-ancud-yellow">Ancud Rollers</span> se unen para potenciar el desarrollo y bienestar de nuestr@s patinador@s. Descubre cómo la búsqueda de la excelencia deportiva fortalece su desarrollo personal.
+            </p>
+        </section>
+
+        <!-- CAROUSEL DE PILARES -->
+        <section id="pilares" class="my-16">
+            <div class="flex items-center justify-center gap-4">
+                <!-- Botón Previo -->
+                <button class="carousel-nav-btn prev">&lt;</button>
+
+                <!-- Contenedor del Carrusel -->
+                <div class="carousel-container shadow-2xl">
+                    <div class="carousel-track">
+                        <!-- Slide 1: Fuerza -->
+                        <div class="carousel-slide">
+                            <img src="https://raw.githubusercontent.com/OmniaInBonum/PresentacionesAskesis/main/Salto%20Valla.png" alt="Patinadora realizando un salto de valla que demuestra fuerza explosiva.">
+                            <div class="carousel-text-overlay">
+                                <h3>Fuerza</h3>
+                                <p>Más que músculos, construimos resiliencia. La fuerza les enseña a superar obstáculos, tanto en la pista como en la vida.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 2: Potencia -->
+                        <div class="carousel-slide">
+                            <img src="https://raw.githubusercontent.com/OmniaInBonum/PresentacionesAskesis/main/Linea%20de%20partida.png" alt="Patinadora en la línea de salida, lista para demostrar su potencia.">
+                             <div class="carousel-text-overlay">
+                                <h3>Potencia</h3>
+                                <p>Canalizamos su energía para que aprendan a ser decididas y efectivas. Cada impulso es una lección de enfoque y determinación.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 3: Estabilidad y Equilibrio -->
+                        <div class="carousel-slide">
+                            <img src="https://raw.githubusercontent.com/OmniaInBonum/PresentacionesAskesis/main/equilibrio%20bosu.png" alt="Patinadora entrenando su equilibrio sobre un BOSU.">
+                             <div class="carousel-text-overlay">
+                                <h3>Estabilidad y Equilibrio</h3>
+                                <p>Les damos una base sólida. El equilibrio en el patinaje se traduce en confianza y control para enfrentar cualquier desafío.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Botón Siguiente -->
+                <button class="carousel-nav-btn next">&gt;</button>
+            </div>
+            <div class="carousel-dots"></div>
+        </section>
+
+        <!-- SECCIÓN DE BENEFICIOS DETALLADOS (CARDS) -->
+         <section id="beneficios" class="my-20">
+            <h2 class="section-title">Beneficios para la Vida</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="info-card info-card-purple">
+                    <h4>Logro y Superación</h4>
+                    <p>Ver su progreso tangible en la pista fomenta la autoconfianza y les enseña que el esfuerzo constante trae recompensas.</p>
+                </div>
+                <div class="info-card info-card-green">
+                    <h4>Cuerpo Sano y Seguro</h4>
+                    <p>Un entrenamiento inteligente es la mejor forma de cuidar su cuerpo, permitiéndoles disfrutar del deporte que aman de forma segura y a largo plazo.</p>
+                </div>
+                 <div class="info-card info-card-blue">
+                    <h4>Maestría y Confianza</h4>
+                    <p>Dominar una técnica o un movimiento complejo no solo mejora su patinaje, sino que también construye un carácter seguro y perseverante.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE CONCLUSIÓN Y CTA -->
+        <section id="conclusion" class="my-16">
+            <div class="cta-section shadow-2xl">
+                 <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Una Inversión en su Desarrollo Personal</h2>
+                <p class="max-w-3xl mx-auto text-lg text-white/90 mb-6">
+                    El deporte es una escuela de vida. A través de la disciplina y el esfuerzo guiado, estamos formando no solo buen@s patinador@s, sino personas íntegras y seguras de sí mismas. Su apoyo es fundamental en este camino.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center p-6 mt-8 text-slate-500 text-sm border-t border-slate-800">
+        <div class="flex items-center justify-center gap-4 mb-4">
+             <!-- Askesis -->
+            <a href="https://omniainbonum.github.io/Biblioteca-Askesis/biblioteca%20Askesis/documentos/AskesisWeb.html" target="_blank" class="flex items-center gap-3">
+                <img src="https://raw.githubusercontent.com/OmniaInBonum/PresentacionesAskesis/main/Askesislogo1.png" alt="Logo de Askesis" class="h-8 w-8 rounded-full border-2 border-slate-700 object-cover">
+                <span class="text-md font-bold uppercase tracking-wider font-inter text-askesis-orange">Askesis</span>
+            </a>
+
+            <span class="text-gray-500 text-xl font-light">/</span>
+
+            <!-- Ancud Rollers -->
+            <div class="flex items-center gap-3">
+                 <span class="text-md font-bold uppercase tracking-wider font-inter text-ancud-yellow">Ancud Rollers</span>
+                 <img src="https://raw.githubusercontent.com/OmniaInBonum/PresentacionesAskesis/main/Ancud%20Rollers.png" alt="Logo de Ancud Rollers" class="h-8 w-8 rounded-full border-2 border-slate-700 object-cover">
+            </div>
+        </div>
+        <p>&copy; 2025 Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.querySelector('.carousel-track');
+            if (!track) return; // Salir si el carrusel no existe
+
+            const slides = Array.from(track.children);
+            const nextButton = document.querySelector('.next');
+            const prevButton = document.querySelector('.prev');
+            const dotsNav = document.querySelector('.carousel-dots');
+            
+            // Crear puntos de navegación
+            slides.forEach((slide, index) => {
+                const dot = document.createElement('button');
+                dot.classList.add('dot');
+                if (index === 0) dot.classList.add('active');
+                dotsNav.appendChild(dot);
+                
+                dot.addEventListener('click', () => {
+                    const targetIndex = index;
+                    track.style.transform = 'translateX(-' + (100 * targetIndex) + '%)';
+                    updateDots(targetIndex);
+                    currentIndex = targetIndex;
+                });
+            });
+
+            const dots = Array.from(dotsNav.children);
+            let currentIndex = 0;
+
+            const updateDots = (targetIndex) => {
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[targetIndex].classList.add('active');
+            }
+            
+            const moveToNextSlide = () => {
+                currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+                track.style.transform = 'translateX(-' + (100 * currentIndex) + '%)';
+                updateDots(currentIndex);
+            };
+            
+            const moveToPrevSlide = () => {
+                currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+                track.style.transform = 'translateX(-' + (100 * currentIndex) + '%)';
+                updateDots(currentIndex);
+            };
+
+            // Event Listeners para botones
+            prevButton.addEventListener('click', moveToPrevSlide);
+            nextButton.addEventListener('click', moveToNextSlide);
+            
+            // Auto-play
+            let autoPlayInterval = setInterval(moveToNextSlide, 5000);
+
+            // Pausar en hover
+            const carouselWrapper = document.querySelector('#pilares .flex');
+            carouselWrapper.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+            carouselWrapper.addEventListener('mouseleave', () => autoPlayInterval = setInterval(moveToNextSlide, 5000));
+        });
+    </script>
+
+</body>
+</html>

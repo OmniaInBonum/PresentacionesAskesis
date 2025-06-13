@@ -122,9 +122,38 @@
         .info-card-blue h4 { color: var(--benefit-blue); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.25rem; margin-bottom: 0.75rem; }
         .info-card-blue p { color: var(--benefit-blue-light); }
 
-
         /* --- CTA Section --- */
         .cta-section { background: linear-gradient(45deg, var(--sky-500), #1d4ed8); border-radius: 1.5rem; padding: 3rem 2rem; text-align: center; }
+
+        /* --- Estilos Responsivos para Móviles --- */
+        @media (max-width: 768px) {
+            .carousel-slide img {
+                height: 400px; /* Altura de imagen reducida en móviles */
+            }
+            .carousel-text-overlay {
+                padding: 2rem 1rem 1.5rem; /* Padding reducido */
+            }
+            .carousel-text-overlay h3 {
+                font-size: 1.75rem; /* Tamaño de título más pequeño */
+            }
+            .carousel-text-overlay p {
+                font-size: 0.9rem; /* Tamaño de párrafo más pequeño */
+                max-width: 95%; /* Permitir más ancho para el texto */
+            }
+            .carousel-nav-btn {
+                width: 2.5rem; /* Botones de navegación más pequeños */
+                height: 2.5rem;
+                font-size: 1.25rem;
+            }
+            .section-title, #introduccion h1 {
+                font-size: 1.8rem; /* Títulos principales más pequeños */
+            }
+            /* Ajuste para el header en móviles */
+            .main-header .flex {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
     </style>
 </head>
 
@@ -135,7 +164,7 @@
 
     <header class="main-header">
         <div class="container mx-auto flex items-center justify-center p-4">
-            <div class="flex items-center gap-4">
+            <div class="flex items-center justify-center flex-wrap gap-x-4 gap-y-2">
                 <!-- Askesis -->
                 <a href="https://omniainbonum.github.io/Biblioteca-Askesis/biblioteca%20Askesis/documentos/AskesisWeb.html" target="_blank" class="flex items-center gap-3">
                     <img src="https://raw.githubusercontent.com/OmniaInBonum/PresentacionesAskesis/main/Askesislogo1.png" alt="Logo de Askesis" class="h-10 w-10 rounded-full border-2 border-slate-700 object-cover">
@@ -165,7 +194,7 @@
 
         <!-- CAROUSEL DE PILARES -->
         <section id="pilares" class="my-16">
-            <div class="flex items-center justify-center gap-4">
+            <div class="flex items-center justify-center gap-2 sm:gap-4">
                 <!-- Botón Previo -->
                 <button class="carousel-nav-btn prev">&lt;</button>
 

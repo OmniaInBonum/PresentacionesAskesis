@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrición para el Rendimiento - Patinaje de Velocidad</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Imagen de fondo de patinadores de carrera */
+            background-image: url('https://images.unsplash.com/photo-1574680096145-97993a404f3a?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Estilo para los íconos SVG en las listas */
+        .list-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            flex-shrink: 0;
+            margin-right: 0.75rem;
+            color: #f97316; /* Naranjo Tailwind (orange-500) */
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Capa semitransparente sobre la imagen de fondo para mejorar la legibilidad -->
+    <div class="bg-black bg-opacity-80 min-h-screen w-full flex flex-col items-center p-4 sm:p-8">
+        
+        <!-- Contenedor principal del contenido -->
+        <div class="w-full max-w-4xl mx-auto">
+            
+            <!-- Encabezado con Logos -->
+            <div class="flex justify-between items-center px-4 pt-6 md:pt-8">
+                <!-- Logo Izquierdo: Askesis con enlaces -->
+                <div class="flex items-center space-x-4">
+                    <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-3 group">
+                        <img src="https://raw.githubusercontent.com/OmniaInBonum/PresentacionesAskesis/main/Askesislogo1.png" alt="Logo Askesis" class="h-14 w-14 md:h-20 md:w-20 rounded-full object-cover border-2 border-gray-500 group-hover:border-orange-500 transition-colors duration-300">
+                        <span class="hidden sm:block text-lg font-bold uppercase text-orange-500 group-hover:text-orange-400 transition-colors duration-300">Askesis</span>
+                    </a>
+                    <a href="https://www.instagram.com/askesis111" target="_blank" rel="noopener noreferrer" title="Visita nuestro Instagram" class="text-white bg-orange-600 hover:bg-orange-700 p-2.5 rounded-full transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                </div>
+                <!-- Logo Derecho: Ancud Rollers -->
+                <div class="flex items-center space-x-3">
+                    <span class="hidden sm:block text-lg font-bold uppercase">Ancud Rollers</span>
+                    <img src="https://raw.githubusercontent.com/OmniaInBonum/PresentacionesAskesis/main/Ancud%20Rollers.png" alt="Logo Ancud Rollers" class="h-14 w-14 md:h-20 md:w-20 rounded-full object-cover border-2 border-gray-500" onerror="this.style.display='none'">
+                </div>
+            </div>
+
+            <!-- Encabezado y Título -->
+            <header class="text-center my-8 md:my-12">
+                <h1 class="text-4xl md:text-6xl font-black tracking-tight uppercase text-orange-500">
+                    Nutrición para el Rendimiento
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mt-2 font-light">
+                    Guía para competencias y entrenamientos intensos
+                </p>
+            </header>
+
+            <main class="space-y-12">
+
+                <!-- Sección: ANTES del esfuerzo intenso -->
+                <section class="bg-gray-900 bg-opacity-90 p-6 rounded-2xl shadow-lg backdrop-blur-sm">
+                    <h2 class="text-3xl font-bold mb-4 border-b-2 border-orange-500 pb-2 text-orange-500">
+                        1. Antes del Esfuerzo Intenso
+                    </h2>
+                    <p class="mb-6 text-gray-300">
+                        La clave es llenar los depósitos de energía. La comida previa debe ser rica en carbohidratos complejos y baja en grasas para una digestión fácil y energía sostenida.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <svg class="list-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <div>
+                                <h3 class="font-bold text-lg">La Comida Principal Anterior</h3>
+                                <p class="text-gray-300">Sea la cena del día anterior o el almuerzo antes de un entrenamiento de tarde, debe ser rica en carbohidratos. Platos como pasta, arroz con pollo, o papas cocidas son ideales.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="list-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1V10a1 1 0 00-1-1H7a1 1 0 00-1 1v10a1 1 0 001 1h2z" /></svg>
+                             <div>
+                                <h3 class="font-bold text-lg">La Comida Pre-Ejercicio</h3>
+                                <p class="text-gray-300">Debe ser 2-3 horas antes de la actividad. Avena con fruta, pan tostado con mermelada o miel, o un tazón de cereal bajo en fibra son excelentes opciones. ¡Nunca entrenar o competir en ayunas!</p>
+                            </div>
+                        </li>
+                         <li class="flex items-start">
+                            <svg class="list-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                            <div>
+                                <h3 class="font-bold text-lg">Justo Antes de Empezar</h3>
+                                <p class="text-gray-300">Unos 30-60 minutos antes, una fruta como un plátano o un puñado de pasas puede dar un último impulso de energía rápida y fácil de digerir.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Sección: DURANTE el esfuerzo -->
+                <section class="bg-gray-900 bg-opacity-90 p-6 rounded-2xl shadow-lg backdrop-blur-sm">
+                    <h2 class="text-3xl font-bold mb-4 border-b-2 border-orange-500 pb-2 text-orange-500">
+                        2. Durante el Esfuerzo (Recesos y Pausas)
+                    </h2>
+                    <p class="mb-6 text-gray-300">
+                        Entre pruebas o en pausas de entrenamientos largos, el objetivo es reponer energía rápidamente sin sobrecargar el estómago. Las porciones deben ser pequeñas y frecuentes.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                             <svg class="list-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.4_8.05_C19.4_5.484_17.316_3.4_14.75_3.4_12.184_3.4_10.1_5.484_10.1_8.05c0_2.252_1.564_4.128_3.675_4.537V20.6h1.95v-8.013c2.11-.409_3.675-2.285_3.675-4.537zM4.6_14.95a1.3_1.3_0_1_1_2.6_0_1.3_1.3_0_0_1-2.6_0z" /></svg>
+                            <div>
+                                <h3 class="font-bold text-lg">Hidratación Constante</h3>
+                                <p class="text-gray-300">Lo más importante. Beber agua o bebidas isotónicas en pequeños sorbos y de forma continua, incluso si no sienten sed. La deshidratación es el enemigo #1 del rendimiento.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                           <svg class="list-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.75_3.4_a2.6_2.6_0_0_0-2.6_2.6v.65a2.6_2.6_0_0_0_2.6_2.6h0a2.6_2.6_0_0_0_2.6-2.6V6a2.6_2.6_0_0_0-2.6-2.6zm-4.55_12.35_-.65.975.65.65.975-.65c.228-.195.52-.195.78_0l.975.65.65-.65-.65-.975a.65.65_0_0_1_0-.78l.65-.975-.65-.65-.975.65a.65.65_0_0_1-.78_0l-.975-.65-.65.65.65.975c.195.227.195.553_0_.78zM9.425_8.7_8.7_9.425l.65.975.975-.65a.65.65_0_0_0_0-.78L8.7_7.75l-.65.65.975.975a.65.65_0_0_0_.422.325z" /></svg>
+                            <div>
+                                <h3 class="font-bold text-lg">Snacks Inteligentes</h3>
+                                <p class="text-gray-300">Frutas (plátano, naranja en gajos, uvas), barras de cereal bajas en fibra, galletas de avena o pequeños sándwiches de pan blanco con miel son ideales. Fáciles de comer y digerir.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                
+                <!-- Sección: DESPUÉS del esfuerzo -->
+                <section class="bg-gray-900 bg-opacity-90 p-6 rounded-2xl shadow-lg backdrop-blur-sm">
+                    <h2 class="text-3xl font-bold mb-4 border-b-2 border-orange-500 pb-2 text-orange-500">
+                        3. Después del Esfuerzo: La Recuperación
+                    </h2>
+                    <p class="mb-6 text-gray-300">
+                        La nutrición post-esfuerzo es crucial para reparar los músculos y rellenar las reservas de energía. La primera hora después de terminar es la "ventana de la oportunidad".
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <svg class="list-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 18.734V6.5A1.5 1.5 0 018.5 5h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 18.734V6.5A1.5 1.5 0 018.5 5H14z" /></svg>
+                            <div>
+                                <h3 class="font-bold text-lg">Carbohidratos y Proteínas</h3>
+                                <p class="text-gray-300">Una combinación de ambos es ideal para la recuperación. Ejemplos: un batido de leche con plátano, yogurt con frutas, un sándwich de pavo o atún, o leche con chocolate.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                             <svg class="list-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.4_8.05_C19.4_5.484_17.316_3.4_14.75_3.4_12.184_3.4_10.1_5.484_10.1_8.05c0_2.252_1.564_4.128_3.675_4.537V20.6h1.95v-8.013c2.11-.409_3.675-2.285_3.675-4.537zM4.6_14.95a1.3_1.3_0_1_1_2.6_0_1.3_1.3_0_0_1-2.6_0z" /></svg>
+                             <div>
+                                <h3 class="font-bold text-lg">Rehidratación Total</h3>
+                                <p class="text-gray-300">Continuar bebiendo líquidos en las horas siguientes al ejercicio para reponer completamente los fluidos perdidos a través del sudor.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Sección: TIPS para padres -->
+                 <section class="bg-gray-900 bg-opacity-90 p-6 rounded-2xl shadow-lg backdrop-blur-sm">
+                    <h2 class="text-3xl font-bold mb-4 border-b-2 border-orange-500 pb-2 text-orange-500">
+                        4. Tips Clave para Padres y Apoderados
+                    </h2>
+                     <ul class="space-y-4">
+                        <li class="flex items-start">
+                           <svg class="list-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+                            <div>
+                                <h3 class="font-bold text-lg">Planificar y No Improvisar</h3>
+                                <p class="text-gray-300">Prepara un bolso o cooler el día anterior con todos los líquidos y snacks necesarios. No dejes nada al azar. ¡Los días de esfuerzo no son para experimentar con comidas nuevas!</p>
+                            </div>
+                        </li>
+                         <li class="flex items-start">
+                            <svg class="list-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                            <div>
+                                <h3 class="font-bold text-lg">Positividad y Paciencia</h3>
+                                <p class="text-gray-300">El rol del apoderado es apoyar. Anima a tu deportista a comer e hidratarse, pero sin presionarlo. El nerviosismo o el cansancio pueden quitar el apetito, por eso los snacks pequeños y familiares son la mejor opción.</p>
+                            </div>
+                        </li>
+                         <li class="flex items-start">
+                            <svg class="list-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                             <div>
+                                <h3 class="font-bold text-lg">Sé el Ejemplo</h3>
+                                <p class="text-gray-300">Si los deportistas ven a sus padres comiendo saludablemente y manteniéndose hidratados, es más probable que ellos también lo hagan. El ambiente del equipo es fundamental.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </main>
+
+            <!-- Pie de página -->
+            <footer class="text-center mt-12 mb-8">
+                <p class="text-gray-400">Una buena nutrición es parte del entrenamiento invisible.</p>
+                <p class="text-gray-500 text-sm">¡Éxito en la pista!</p>
+            </footer>
+
+        </div>
+    </div>
+
+</body>
+</html>
